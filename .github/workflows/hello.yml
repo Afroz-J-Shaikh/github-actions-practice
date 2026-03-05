@@ -11,4 +11,4 @@ jobs:
         uses: actions/checkout@v4 
 
       - name: greets user
-        run: echo "Hello from GitHub Actions!
+        run: echo "Hello from GitHub Actions!" 
