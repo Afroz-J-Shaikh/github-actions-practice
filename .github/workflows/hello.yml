@@ -22,5 +22,5 @@ jobs:
       - name: Listing files in the repo
         run: ls -la
          
-      - name: Runner's operating system
+      - name: Printing Runner's operating system
         run: echo "Runner OS:" ${{ runner.os }}
