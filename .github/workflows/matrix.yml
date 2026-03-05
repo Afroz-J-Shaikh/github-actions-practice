@@ -1,9 +1,10 @@
 name: matrix strategy
 
 on:
-  push:
-    branches: [main]
-    paths: matrix.yml
+  workflow_dispatch:
+  #push:
+  #branches: [main]
+  #paths: matrix.yml
 
 jobs:
   matrix:
