@@ -2,8 +2,6 @@ name: Hello Yaml
 on:
   push:
     branches: [main]
-    paths:
-    - '*.html'
     
 jobs:
   greet:
