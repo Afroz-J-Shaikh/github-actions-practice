@@ -1,7 +1,7 @@
 name: cron schedule
 on:
     schedule:
-        - cron: '* * * * *' # Runs every day at midnight
+        - cron: '0 0 * * *' # Runs every day at midnight
 jobs:
     scheduled-job:
         runs-on: ubuntu-latest
