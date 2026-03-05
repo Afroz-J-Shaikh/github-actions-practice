@@ -1,4 +1,4 @@
-name: corn schedule
+name: cron schedule
 on:
     schedule:
         - cron: '* * * * *' # Runs every day at midnight
