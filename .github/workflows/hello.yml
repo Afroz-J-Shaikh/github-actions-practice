@@ -2,8 +2,7 @@ name: Hello Yaml
 on:
   push:
     branches: [main]
-
-  paths:
+    paths:
     - '*.html'
     
 jobs:
@@ -12,5 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4 
+
       - name: greets user
         run: echo "Hello user"
