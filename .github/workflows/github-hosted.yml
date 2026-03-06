@@ -16,5 +16,13 @@ jobs:
         run: |
           echo "Hostname :" 
           hostname
-      - name: The current user running the job
+      - name: The current github user running the job
         run: echo "Current user :" ${{ github.actor }}
+      
+      - name: The current runner user running the job
+        run: |
+          if [ $RUNNER_OS == "Windows"]; then
+            echo "Current runner user :" %USERNAME%
+          else
+            echo "Current runner user :" $USER
+          fi
