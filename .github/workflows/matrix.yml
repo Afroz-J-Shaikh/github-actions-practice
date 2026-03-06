@@ -10,13 +10,13 @@ jobs:
   matrix:
     
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
         python-version: ["3.10", "3.11", "3.12"]
         exclude:
           - os: macos-latest
             python-version: "3.10"
-        fail-fast: "false"
     runs-on: ${{ matrix.os }}
     steps:
       - name: installing python version ${{ matrix.python-version }}
