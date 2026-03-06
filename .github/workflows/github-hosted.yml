@@ -11,8 +11,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Print OS name
-        run: echo "OS name: " ${{ runner.os }}
+        run: echo "OS name :" ${{ matrix.os }}
       - name: Runners Hostname
-        run: echo "Hostname: " ${{ runner.name }}
+        run: echo "Hostname :" ${{ runner.name }}
       - name: The current user running the job
-        run: echo "Current user: " ${{ github.actor }}
+        run: echo "Current user :" ${{ github.actor }}
