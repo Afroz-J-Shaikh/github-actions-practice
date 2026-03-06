@@ -22,5 +22,5 @@ jobs:
       - name: The current runner user running the job
         run: |
           echo "Current runner user :" 
-          ${{ runner.os == 'windows-latest' && $env:USERNAME || $USER }}
+          ${{ runner.os == 'windows-latest' && env:USERNAME || env:USER }}
         shell : bash
