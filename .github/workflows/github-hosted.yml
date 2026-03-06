@@ -13,6 +13,6 @@ jobs:
       - name: Print OS name
         run: echo "OS name :" ${{ matrix.os }}
       - name: Runners Hostname
-        run: echo "Hostname :" ${{ runner.name }}
+        run: 'echo "Hostname :" hostname'
       - name: The current user running the job
         run: echo "Current user :" ${{ github.actor }}
