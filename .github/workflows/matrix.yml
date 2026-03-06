@@ -16,7 +16,7 @@ jobs:
         exclude:
           - os: macos-latest
             python-version: "3.10"
-        fail-fast: false
+        fail-fast: "false"
     runs-on: ${{ matrix.os }}
     steps:
       - name: installing python version ${{ matrix.python-version }}
