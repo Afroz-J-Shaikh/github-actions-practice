@@ -25,9 +25,10 @@ jobs:
         run: echo "This runs on push"
   on-error:
     runs-on: ubuntu-latest
-    continue-on-error: true
+    
     steps:
       - name: failing step
         run: python ---version
-      - name: running on error
+      - continue-on-error: true
+        name: running on error
         run: echo "Running on error"
