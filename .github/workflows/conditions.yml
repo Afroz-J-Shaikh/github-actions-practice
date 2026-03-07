@@ -12,13 +12,22 @@ jobs:
         name: Print on only main
         run: |
           echo "hello"
-          exit 1
+          #exit 1
       - if: failure()
         name: running if previos failed
         run: echo "Previous step failed"
   on-push:
-    if: push 
+    # run only on push
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: running on push
         run: echo "This runs on push"
+  on-error:
+    runs-on: ubuntu-latest
+    steps:
+      - name: failing step
+        run: exit 1
+      - name: running on error
+        continue-on-error: true
+        run: echo "Running on error"
