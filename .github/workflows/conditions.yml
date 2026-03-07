@@ -6,7 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: github.ref == 'refs/heads/main'
+        id: step1
         name: Print on only main
         run: echo "hello"
+      - if: steps.step1.outputs.exit_code != 0
+        name: running if previos failed
+        run: echo "Previous step failed"
+       
       - name: print always
         run: echo "always"
