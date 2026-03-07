@@ -6,13 +6,14 @@ on:
 jobs:
   check-conditions:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - if: github.ref == 'refs/heads/main'
         id: step1
         name: Print on only main
         run: |
           echo "hello"
-          #exit 1
+          exit 1
       - if: failure()
         name: running if previos failed
         run: echo "Previous step failed"
