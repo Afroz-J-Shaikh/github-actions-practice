@@ -1,0 +1,12 @@
+name: conditions yml
+on:
+  workflow_dispatch:
+jobs:
+  check-conditions:
+    runs-on: ubuntu-latest
+    steps:
+      - if: github.ref == 'refs/heads/main'
+        name: Print on only main
+        run: echo "hello"
+      - name: print always
+        run: echo "always"
