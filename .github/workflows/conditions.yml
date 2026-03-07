@@ -15,5 +15,3 @@ jobs:
         name: running if previos failed
         run: echo "Previous step failed"
        
-      - name: print always
-        run: echo "always"
