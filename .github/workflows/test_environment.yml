@@ -1,0 +1,16 @@
+name: environment test
+on:
+  workflow_dispatch:
+env:
+  APP_NAME: myapp
+jobs:
+  test:
+    ENVIRONMENT: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: setting version
+        run: |
+          echo "APP_NAME :" $APP_NAME
+          echo "ENVIRONMENT :" $ENVIRONMENT
+          echo "VERSION :" $VERSION
+        VERSION: 1.0.0
