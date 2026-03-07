@@ -9,7 +9,7 @@ jobs:
         id: step1
         name: Print on only main
         run: echo "hello"
-      - if: steps.step1.status == failure()
+      - if: steps.step1.status != 'success'
         name: running if previos failed
         run: echo "Previous step failed"
        
