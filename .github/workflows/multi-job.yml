@@ -8,13 +8,13 @@ jobs:
       - name: Building app
         run: echo "Building the app"
   test:
-    depends_on: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Running test
         run: echo "Running tests"
   deploy:
-    depends_on: test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Deploying
