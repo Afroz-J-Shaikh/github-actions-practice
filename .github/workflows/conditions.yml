@@ -11,7 +11,7 @@ jobs:
         run: |
           echo "hello"
           exit 1
-      - if: steps.step1.outputs.exit_code != 0
+      - if: failure()
         name: running if previos failed
         run: echo "Previous step failed"
        
