@@ -6,7 +6,6 @@ on:
 jobs:
   check-conditions:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - if: github.ref == 'refs/heads/main'
         id: step1
@@ -24,3 +23,11 @@ jobs:
     steps:
       - name: running on push
         run: echo "This runs on push"
+  on-error:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: failing step
+        run: exit 1
+      - name: running on error
+        run: echo "Running on error"
