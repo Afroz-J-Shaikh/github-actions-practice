@@ -1,6 +1,8 @@
 name: conditions yml
 on:
   workflow_dispatch:
+  push:
+  pull_request:
 jobs:
   check-conditions:
     runs-on: ubuntu-latest
@@ -14,4 +16,9 @@ jobs:
       - if: failure()
         name: running if previos failed
         run: echo "Previous step failed"
-       
+  on-push:
+    if: push 
+    runs-on: ubuntu-latest
+    steps:
+      - name: running on push
+        run: echo "This runs on push"
