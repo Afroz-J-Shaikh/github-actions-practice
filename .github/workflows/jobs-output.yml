@@ -9,9 +9,7 @@ jobs:
     steps:
       - id: id-1
         name: set output to today's date
-        run: |
-          echo "date=$(date)" >> "$GITHUB_OUTPUT"
-          echo "Set date is :" ${{ steps.id-1.outputs.date}}
+        run: echo "date=$(date)" >> "$GITHUB_OUTPUT"
   get:
     runs-on: ubuntu-latest
     needs: set
