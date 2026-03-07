@@ -12,7 +12,7 @@ jobs:
         name: Print on only main
         run: |
           echo "hello"
-          exit 1
+          #exit 1
       - if: failure()
         name: running if previos failed
         run: echo "Previous step failed"
