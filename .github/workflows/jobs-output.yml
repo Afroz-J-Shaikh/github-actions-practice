@@ -17,5 +17,5 @@ jobs:
     needs: set
     steps:
       - name: Get output from previous job
-        run: echo "Today's date is :" ${{ needs.set.outputs.date }}
+        run: echo "Today's date is :" ${{ needs.set.outputs.date_output }}
     
