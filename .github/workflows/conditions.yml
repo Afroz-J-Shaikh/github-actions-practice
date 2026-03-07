@@ -1,7 +1,7 @@
 name: conditions yml
 on:
   workflow_dispatch:
-  push:
+  #push:
   pull_request:
 jobs:
   check-conditions:
