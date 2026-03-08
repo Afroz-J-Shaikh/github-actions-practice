@@ -10,17 +10,17 @@ on:
       description: 'Output file to store result'
       required: false
       default: 'analysis.txt'
-  jobs:
-    analyze:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        - name: Setup python
-          uses: actions/setup-python@v4
-          with:
-            python-version: 3.12
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
 
-        - name: run script
-          run: python log_analyzer_cli.py ${{ github.events.input.logfile }} --out ${{ github.event.inputs.outputfile }}
+      - name: run script
+        run: python log_analyzer_cli.py ${{ github.events.input.logfile }} --out ${{ github.event.inputs.outputfile }}
