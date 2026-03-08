@@ -1,15 +1,15 @@
 name: python log analyzer 
 on: 
   workflow_dispatch:
-  inputs:
-    logfile:
-      description: 'Log file to analyze'
-      required: true
-      default: 'app.log'
-    outputfile:
-      description: 'Output file to store result'
-      required: false
-      default: 'analysis.txt'
+    inputs:
+      logfile:
+        description: 'Log file to analyze'
+        required: true
+        default: 'app.log'
+      outputfile:
+        description: 'Output file to store result'
+        required: false
+        default: 'analysis.txt'
 jobs:
   analyze:
     runs-on: ubuntu-latest
