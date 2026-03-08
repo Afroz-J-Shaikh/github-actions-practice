@@ -23,8 +23,7 @@ jobs:
           python-version: 3.12
 
       - name: run script
-        run: python log_analyzer_cli.py 
-        #"${{ github.event.inputs.logfile }}" --out "${{ github.event.inputs.outputfile }}"
+        run: python log_analyzer_cli.py "${{ github.event.inputs.logfile }}" --out "${{ github.event.inputs.outputfile }}"
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
