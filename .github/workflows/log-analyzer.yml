@@ -24,3 +24,9 @@ jobs:
 
       - name: run script
         run: python log_analyzer_cli.py "${{ github.event.input.logfile }}" --out "${{ github.event.inputs.outputfile }}"
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with: 
+          name: analysis.txt
+          path: analysis.txt
