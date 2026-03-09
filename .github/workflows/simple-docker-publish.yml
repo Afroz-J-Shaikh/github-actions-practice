@@ -40,7 +40,7 @@ jobs:
           push: true
           tags: |
             ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
-            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha }}
+            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha::7 }}
 
       - name: Build image  if pushed from other branches or on pull request
         if: github.ref_name != 'main'
@@ -50,4 +50,4 @@ jobs:
           push: false
           tags: |
             ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
-            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha }}
+            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha::7 }}
