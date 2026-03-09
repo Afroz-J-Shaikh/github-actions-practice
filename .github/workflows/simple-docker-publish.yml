@@ -1,6 +1,7 @@
 name: publish docker of simple-java-docker
 on:
-  push: [main]
+  push: 
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
