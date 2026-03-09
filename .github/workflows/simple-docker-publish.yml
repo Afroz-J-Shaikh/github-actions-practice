@@ -31,12 +31,10 @@ jobs:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
       
-      - name: change working directory
-        working-directory: ./simple-java-docker
-        
       - name: Build & Push image to Docker Hub
         uses: docker/build-push-action@v6
         with:
+          path: simple-java-docker
           context: .
           push: true
           tags: |
