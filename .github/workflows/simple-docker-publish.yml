@@ -16,7 +16,7 @@ jobs:
       - name: list all files
         run: ls -la
       - name: Build docker image
-        working-directory: ./simple-jave-docker
+        working-directory: ./simple-java-docker
         run: docker build -t simple-java-docker .
       - name: Tag docker images
         run: docker tag simple-java-docker afroz25/simple-java-docker:latest
