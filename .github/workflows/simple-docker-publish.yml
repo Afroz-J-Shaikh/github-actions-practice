@@ -32,7 +32,7 @@ jobs:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
       
-      - name: Build & Push image to Docker Hub
+      - name: Build & Push image to Docker Hub if pushed from main
         if: github.ref_name == 'main'
         uses: docker/build-push-action@v6
         with:
@@ -42,7 +42,7 @@ jobs:
             ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
             ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha }}
 
-      - name: Build & Push image to Docker Hub
+      - name: Build image  if pushed from other branches or on pull request
         if: github.ref_name != 'main'
         uses: docker/build-push-action@v6
         with:
