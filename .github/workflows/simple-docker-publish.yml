@@ -34,8 +34,7 @@ jobs:
       - name: Build & Push image to Docker Hub
         uses: docker/build-push-action@v6
         with:
-          path: ./simple-java-docker
-          context: .
+          context: ./simple-java-docker
           push: true
           tags: |
             ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
