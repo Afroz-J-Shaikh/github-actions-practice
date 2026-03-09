@@ -9,9 +9,11 @@ jobs:
       - name: code checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 1
           sparse-checkout: |
             simple-java-docker
           sparse-checkout-cone-mode: true
+          path: .
       - name: list all files
         run: ls -la
       - name: Build docker image
