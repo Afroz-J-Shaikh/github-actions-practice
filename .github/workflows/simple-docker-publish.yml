@@ -1,0 +1,52 @@
+name: publish docker of simple-java-docker
+
+on:
+  push: 
+    branches: [main]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: code checkout
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            simple-java-docker
+          sparse-checkout-cone-mode: false
+
+      #- name: Build docker image
+       # working-directory: ./simple-java-docker
+        #run: docker build -t simple-java-docker .
+      #- name: Tag docker images
+       # run: docker tag simple-java-docker ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
+      
+      - name: LogIn to Docke Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      
+      - name: Build & Push image to Docker Hub
+        if: ${{ github.ref_name }} == 'main'
+        uses: docker/build-push-action@v6
+        with:
+          context: ./simple-java-docker
+          push: true
+          tags: |
+            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
+            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha }}
+
+      - name: Build & Push image to Docker Hub
+        if: ${{ github.ref_name }} != 'main'
+        uses: docker/build-push-action@v6
+        with:
+          context: ./simple-java-docker
+          push: false
+          tags: |
+            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:latest
+            ${{ vars.DOCKER_USERNAME }}/simple-java-docker:${{ github.sha }}

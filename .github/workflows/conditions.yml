@@ -1,7 +1,7 @@
 name: conditions yml
 on:
   workflow_dispatch:
-  push:
+  #push:
   pull_request:
 jobs:
   check-conditions:
@@ -16,8 +16,8 @@ jobs:
       - if: failure()
         name: running if previos failed
         run: echo "Previous step failed"
+
   on-push:
-    # run only on push
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -25,9 +25,10 @@ jobs:
         run: echo "This runs on push"
   on-error:
     runs-on: ubuntu-latest
+    
     steps:
       - name: failing step
-        run: exit 1
-      - name: running on error
+        run: python ---version
         continue-on-error: true
+      - name: running on error
         run: echo "Running on error"
