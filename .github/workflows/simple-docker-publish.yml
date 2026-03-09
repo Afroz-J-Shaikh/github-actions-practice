@@ -12,6 +12,8 @@ jobs:
           sparse-checkout: |
             simple-java-docker
           sparse-checkout-cone-mode: true
+      - name: list all files
+        run: ls -la
       - name: Build docker image
         run: docker build -t simple-java-docker .
       - name: Tag docker images
