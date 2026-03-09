@@ -1,8 +1,9 @@
 name: publish docker of simple-java-docker
 
 on:
-  push: 
-    branches: [main]
+  push:
+  pull_request:
+    types: [opened, synchronize] 
 
 jobs:
 
