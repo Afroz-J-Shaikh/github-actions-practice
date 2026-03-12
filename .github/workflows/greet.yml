@@ -18,6 +18,7 @@ jobs:
         uses: ./.github/actions/setup-and-greet
         with:
           name: 'Afroz'
+          laguage: 'korean'
 
       - name: check if greeted
         run: echo "${{ steps.check.outputs.greeted }}"
