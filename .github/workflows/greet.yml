@@ -19,5 +19,5 @@ jobs:
         with:
           name: 'Afroz'
 
-      - check: if greeted
+      - name: check if greeted
         run: echo "${{ steps.check.outputs.greeted }}"
