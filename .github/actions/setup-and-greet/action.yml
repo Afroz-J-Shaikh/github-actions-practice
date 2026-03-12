@@ -28,6 +28,7 @@ runs:
   steps:
 
     - name:  Print a greeting in the specified language
+      shell: bash
       run: |
         case: "${{ inputs.laguage }}" in 
         en) echo "Hello, ${{ inputs.name }}." ;;
@@ -37,9 +38,11 @@ runs:
         esac
 
     - name: Print the current date and runner OS
+      shell: bash
       run: echo -e "Current Date :$(date)\n Runner OS :$RUNNER_OS"
 
     - name: Set an output called `greeted` with value `true`
+      shell: bash
       id: set
       run: echo "greeted=true" >> "$GITHUB_OUTPUT"
 
