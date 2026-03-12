@@ -25,12 +25,14 @@ on:
 
       build_version:
         description: build version information
-        value: 'v1.0-${{ jobs.steps.set.outputs.SHORT_SHA }}'
+        value: ${{ jobs.reusable.outputs.version }}
 
 jobs:
   
   reusable:
     runs-on: ubuntu-latest
+    outputs:
+          version: 'v1.0-${{ steps.set.outputs.SHORT_SHA }}'
 
     steps:
 
