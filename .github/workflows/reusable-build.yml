@@ -47,6 +47,6 @@ jobs:
 
       - name: Set build version value
         id: set
-        run: |
-          echo "SHORT_SHA=${github.sha::7}" >> $GITHUB_ENV
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+        
     
