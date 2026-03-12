@@ -12,8 +12,12 @@ jobs:
       
       - name: checkout
         uses: actions/checkout@v4
-        
+
       - name: greet & setup
+        id: check
         uses: ./.github/actions/setup-and-greet
         with:
           name: 'Afroz'
+
+      - check: if greeted
+        run: echo "${{ steps.check.outputs.greeted }}"
