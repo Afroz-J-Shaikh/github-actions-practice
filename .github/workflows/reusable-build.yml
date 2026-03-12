@@ -32,9 +32,12 @@ jobs:
   reusable:
     runs-on: ubuntu-latest
     outputs:
-          version: 'v1.0-${{ steps.set.outputs.SHORT_SHA }}'
+      version: 'v1.0-${{ steps.set.outputs.SHORT_SHA }}'
 
     steps:
+      
+      - name: code checkout
+        uses: actions/checkout@v4
 
       - name: app name & environment
         run: echo  "Building ${{ inputs.app_name }} for  ${{ inputs.environment }}"
@@ -49,6 +52,8 @@ jobs:
 
       - name: Set build version value
         id: set
-        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+        run: |
+          echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+          echo "$SHORT_SHA"
         
     
