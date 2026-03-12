@@ -48,5 +48,5 @@ jobs:
       - name: Set build version value
         id: set
         run: |
-          echo "SHORT_SHA=${{ github.sha::7 }}" >> $SHORT_SHA
+          echo "SHORT_SHA=${github.sha::7}" >> $SHORT_SHA
     
