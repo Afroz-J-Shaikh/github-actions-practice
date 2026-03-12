@@ -30,11 +30,11 @@ runs:
     - name:  Print a greeting in the specified language
       shell: bash
       run: |
-        case: "${{ inputs.laguage }}" in 
+        case "${{ inputs.laguage }}" in 
         en) echo "Hello, ${{ inputs.name }}." ;;
-        korean) echo "안녕하세요, {{ inputs.name }}."
-        chinese) echo "你好, {{ inputs.name }}."
-        spanish) echo "Hola, {{ inputs.name }}."
+        korean) echo "안녕하세요, {{ inputs.name }}." ;;
+        chinese) echo "你好, {{ inputs.name }}." ;; 
+        spanish) echo "Hola, {{ inputs.name }}." ;;
         esac
 
     - name: Print the current date and runner OS
