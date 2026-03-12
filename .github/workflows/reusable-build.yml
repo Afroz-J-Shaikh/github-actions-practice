@@ -23,13 +23,13 @@ on:
 
 jobs:
   
-  build:
+  reusable:
     runs-on: ubuntu-latest
 
     steps:
 
       - name: app name & environment
-        run: echo  "Building ${{ inputs.app_name }} for  {{inputs.environment }}"
+        run: echo  "Building ${{ inputs.app_name }} for  {{ inputs.environment }}"
 
       - name: Check docker token 
         run: |
