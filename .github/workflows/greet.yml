@@ -1,0 +1,16 @@
+name: using composite action
+
+on: 
+  push:
+
+jobs:
+
+  greet:
+    runs-on: ubuntu-latest
+   
+    steps:
+      
+      - name: greet & setup
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: 'Afroz'
