@@ -1,8 +1,9 @@
 name: call reusable workflow
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  #push:
+    #branches: [main]
     
 jobs:
 
@@ -17,7 +18,7 @@ jobs:
   build-info:
     needs: build
     runs-on: ubuntu-latest
-    
+
     steps:
      
       - name: Build version
