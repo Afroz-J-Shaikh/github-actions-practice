@@ -1,9 +1,10 @@
 name: publish docker of simple-java-docker
 
 on:
-  push:
-  pull_request:
-    types: [opened, synchronize] 
+  workflow_dispatch:
+  #push:
+  #pull_request:
+    #types: [opened, synchronize] 
 
 jobs:
 
