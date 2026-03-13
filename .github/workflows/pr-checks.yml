@@ -18,7 +18,7 @@ jobs:
 
       - name: Check file size
         run: |
-          Files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          Files=$(git diff --name-only origin/${{ github.base_ref }} HEAD)
 
           for file in $Files; do
             if [ -f "$file" ]; then
