@@ -41,7 +41,7 @@ jobs:
           branch=${{ github.head_ref }}
           pattern="^(feature|fix|docs)\/.*"
 
-          if [[ ! "$branch" =~ "$pattern" ]]; then
+          if [[ ! "$branch" =~ $pattern ]]; then
             echo "Invalid branch"
             exit 1
           fi
@@ -53,7 +53,13 @@ jobs:
      
       - name: Check description
         run: |
-          echo "${{ github.event.pull_request.body }}"
+          des=${{ github.event.pull_request.body }}
+          if [ -z $des ]; then
+            echo "WARNING: Description is empty. Please write description."
+          else
+            echo "Description: $des"
+          fi
+          
 
 
               
