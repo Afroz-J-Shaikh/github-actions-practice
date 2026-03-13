@@ -1,8 +1,9 @@
 name: pr-lifecycle
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+  #pull_request:
+    #types: [opened, synchronize, reopened, closed]
 
 jobs:
  
