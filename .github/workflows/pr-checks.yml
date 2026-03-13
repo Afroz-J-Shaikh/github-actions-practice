@@ -1,0 +1,33 @@
+name: Real world PR-gate
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+
+  file-size-check:
+    runs-on: ubuntu-latest
+
+    steps:
+     
+      - name: code checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Check file size
+        run: |
+          Files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+
+          for file in $Files; do
+            if [ -f "$file" ]; then
+              SIZE=$(stat -c%s "$file")
+              if [ $SIZE -gt 1048576 ]; then
+                echo "File is larger than 1 MB"
+                exit 1
+              fi
+              echo "File is within limits"
+            fi
+          done
+              
