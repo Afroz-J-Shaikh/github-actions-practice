@@ -44,7 +44,9 @@ jobs:
           if [[ ! "$branch" =~ $pattern ]]; then
             echo "Invalid branch"
             exit 1
-          fi
+          else
+            echo "Valid branch"
+
 
   pr-body-check:
     runs-on: ubuntu-latest
