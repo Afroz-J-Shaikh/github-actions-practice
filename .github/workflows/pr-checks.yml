@@ -1,8 +1,9 @@
 name: Real world PR-gate
 
 on:
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
+  #pull_request:
+    #branches: [main]
 
 jobs:
 
@@ -30,4 +31,15 @@ jobs:
               echo "File is within limits"
             fi
           done
+
+  branch-name-check:
+    runs-on: ubuntu-latest
+
+    steps:
+     #`feature/*`, `fix/*`, or `docs/*`
+      - name: check pattern
+        run: |
+          branch=${{ github.head_ref }}
+          echo "$branch"
+
               
