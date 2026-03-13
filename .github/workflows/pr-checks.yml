@@ -57,7 +57,7 @@ jobs:
       - name: Check description
         run: |
           des="${{ github.event.pull_request.body }}"
-          if [ -z $des ]; then
+          if [ -z "$des" ]; then
             echo "WARNING: Description is empty. Please write description."
           else
             echo "Description: $des"
