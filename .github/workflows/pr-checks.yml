@@ -46,6 +46,7 @@ jobs:
             exit 1
           else
             echo "Valid branch"
+          fi
 
 
   pr-body-check:
