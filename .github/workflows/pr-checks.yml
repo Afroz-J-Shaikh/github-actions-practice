@@ -1,6 +1,7 @@
 name: Real world PR-gate
 
 on:
+  #workflow_dispatch:
   pull_request:
     branches: [main]
 
@@ -30,4 +31,29 @@ jobs:
               echo "File is within limits"
             fi
           done
+
+  branch-name-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check pattern
+        run: |
+          branch=${{ github.head_ref }}
+          pattern="^(feature|fix|docs)\/.*"
+
+          if [[ ! "$branch" =~ "$pattern" ]]; then
+            echo "Invalid branch"
+            exit 1
+          fi
+
+  pr-body-check:
+    runs-on: ubuntu-latest
+
+    steps:
+     
+      - name: Check description
+        run: |
+          echo "${{ github.event.pull_request.body }}"
+
+
               
