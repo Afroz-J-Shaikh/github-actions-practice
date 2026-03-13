@@ -60,7 +60,7 @@ jobs:
           if [ -z $des ]; then
             echo "WARNING: Description is empty. Please write description."
           else
-            echo "Description: $des"
+            echo "$des"
           fi
           
 
