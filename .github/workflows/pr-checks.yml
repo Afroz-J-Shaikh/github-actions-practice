@@ -14,11 +14,11 @@ jobs:
       - name: code checkout
         uses: actions/checkout@v5
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Check file size
         run: |
-          Files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          Files=$(git diff --name-only origin/${{ github.base_ref }} HEAD)
 
           for file in $Files; do
             if [ -f "$file" ]; then
