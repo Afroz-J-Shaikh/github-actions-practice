@@ -1,11 +1,12 @@
 name: smart triggers
 
 on:
-  push:
-    branches: ['main','release/*']
-    paths-ignore:
-     - '*.md'
-     - 'docs/**'
+  workflow_dispatch:
+  #push:
+    #branches: ['main','release/*']
+    #paths-ignore:
+     #- '*.md'
+     #- 'docs/**'
 
 jobs:
  
