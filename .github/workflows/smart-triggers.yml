@@ -14,4 +14,8 @@ jobs:
     steps:
       
       - name: print
-        run: echo "${{ github.ref}}"
+        run: |
+          Files=$(git diff --name-only origin/${{ github.ref_name }} HEAD)
+          for file in $Files; do
+            echo "$file"
+          done
