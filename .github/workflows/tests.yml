@@ -15,3 +15,6 @@ jobs:
           echo "Runnign from test workflow"
           echo "All tests done for :$(date)"
           echo '"All tests done on :${{ runner.os }}"'
+
+      - name: FAIL
+        run: exit 1
