@@ -13,5 +13,5 @@ jobs:
       - name: print test
         run: |
           echo "Runnign from test workflow"
-          echo '"All tests done for :$(date)"'
+          echo "All tests done for :$(date)"
           echo '"All tests done on :${{ runner.os }}"'
