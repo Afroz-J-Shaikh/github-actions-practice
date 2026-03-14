@@ -1,0 +1,17 @@
+name: smart triggers
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'app/**'
+
+jobs:
+ 
+  print:
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: print
+        run: echo "${{ github.ref}}"
